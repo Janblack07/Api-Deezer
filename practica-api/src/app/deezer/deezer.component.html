@@ -1,0 +1,21 @@
+<div class="mt-2 col-md-3 mx-auto">
+    <input type="search" [(ngModel)]="query">
+    <button class="btn btn-sm btn-outline-danger mb-1 mx-2" (click)="search(query)">Buscar</button>
+</div>
+<div class="row">
+    <div *ngFor="let item of results" class="col-md-3 p-3">
+        <div class="card" style="width: 18rem;">
+            <img style="height: 12em;object-fit:cover;" src="{{item.album.cover_small}} " class="card-img-top w-100" alt="imagen">
+            <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <h5 class="card-title">{{item.duration}}</h5>
+            </div>
+            <div>
+                <audio class="w-75 justify-content-center" [src]="item.preview" controls></audio>
+            </div>
+            <div>
+                <button type="button" class="btn btn-sm btn-outline-primary" (click)="OnCreate(item)">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
